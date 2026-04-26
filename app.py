@@ -11,7 +11,7 @@ API_BASE_URL = "http://localhost:8000"
 
 # Page Configuration
 st.set_page_config(
-    page_title="AI SQL Agent", 
+    page_title="NL2SQL-Engine", 
     layout="wide",
     page_icon="🔍"
 )
@@ -295,4 +295,4 @@ if prompt := st.chat_input("Ask a question data (e.g., 'Show top 5 customers')")
 
 # Footer
 st.markdown("---")
-st.caption("AI SQL Agent - Built with Modern Stack")
+st.caption("NL2SQL-Engine - Built with Modern Stack")
