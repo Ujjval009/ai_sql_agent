@@ -23,3 +23,9 @@ dependencies = [
     "langchain-huggingface>=1.2.1",
     "langchain-core>=1.2.17",
 ]
+
+[tool.pyright]
+# Tells Pylance/Pyright that the root folder is the import boundary, not "src/"
+executionEnvironments = [
+  { root = "." }
+]
