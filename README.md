@@ -2,8 +2,15 @@
 
 A GenAI-powered intelligent SQL assistant that converts natural language questions into executable SQL queries, provides autonomous visualizations, and maintains conversational context.
 
-> **Built using:** LangChain + Pinecone + Groq + Streamlit  
-> **Backend:** Python + SQLite (Chinook DB)
+> **Built using:** LangChain + Pinecone + Groq + React + Streamlit  
+> **Backend:** FastAPI (Python) + SQLite (Chinook DB)
+
+---
+
+## ✨ Recent Upgrades
+- **Modern React Frontend**: Added a beautifully styled, lightning-fast Single Page Application (SPA) using React & Vite located in the `frontend/` directory. Features a premium dark mode UI, native chat-like interface, and SVG icons.
+- **FastAPI CORS Integration**: Expanded the backend API (`server.py`) to seamlessly accept cross-origin requests (`CORSMiddleware`), effectively decoupling the frontend and backend architectures completely.
+- **Dual Support**: Fully preserves the legacy Streamlit (`app.py`) application while allowing users to run the premium React web frontend using the same FastAPI interface!
 
 ---
 
@@ -41,7 +48,7 @@ This tool bridges the gap between business users and SQL databases by allowing a
 | LLM           | [Groq](https://groq.com/) (Llama3.3 70B Turbo)         |
 | RAG Framework | [LangChain](https://www.langchain.com/)                |
 | Vector DB     | [Pinecone](https://www.pinecone.io/) (Cloud Vector DB) |
-| Frontend      | [Streamlit](https://streamlit.io/)                     |
+| Frontend      | [React](https://react.dev/) (Vite) & [Streamlit](https://streamlit.io/) |
 | Database      | Chinook SQLite (sample DB)                             |
 
 ---
@@ -59,8 +66,9 @@ ai-sql-agent/
 │   ├── logger.py               # Query logging
 │   ├── visualization.py        # Dynamic chart generation
 │   └── config.py               # Configuration constants
-├── app.py                      # Main Streamlit application
+├── app.py                      # Legacy Streamlit application
 ├── server.py                   # FastAPI backend
+├── frontend/                   # Modern React Frontend (Vite)
 ├── requirements.txt            # Project dependencies
 └── .env                        # API Keys (Groq, Pinecone)
 ```
@@ -71,8 +79,8 @@ ai-sql-agent/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/adityaraj31/ai-sql-agent.git
-   cd ai-sql-agent
+   git clone https://github.com/Ujjval009/NL2SQL-Engine.git
+   cd ai_sql_agent
    ```
 
 2. **Install Dependencies** (Recommended: [uv](https://github.com/astral-sh/uv))
@@ -94,12 +102,24 @@ ai-sql-agent/
    ```
 
 5. **Start Backend & App**
-   Run the FastAPI server and Streamlit app:
+   Run the FastAPI server and your choice of frontend:
+
    ```bash
-   # Terminal 1
+   # Terminal 1: Start Backend API
    python server.py
+   ```
    
-   # Terminal 2
+   **Option A: React Frontend (Recommended)**
+   ```bash
+   # Terminal 2: Start Vite Dev Server
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+   **Option B: Streamlit Frontend**
+   ```bash
+   # Terminal 2: Start Streamlit App
    streamlit run app.py
    ```
 
